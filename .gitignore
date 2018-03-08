@@ -1,2 +1,7 @@
 *.class
 target
+
+# mvn idea:idea meta files
+*.iml
+*.ipr
+*.iws
