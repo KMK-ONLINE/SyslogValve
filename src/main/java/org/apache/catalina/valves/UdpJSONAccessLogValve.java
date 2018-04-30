@@ -43,6 +43,8 @@ public class UdpJSONAccessLogValve extends AbstractAccessLogValve {
 
   // ----------------------------------------------------- Instance Variables
 
+  private boolean forUnitTest = false;
+
   private DatagramSocket datagramSocket;
   private InetAddress hostnameInetAddress;
   private int intPort;
@@ -53,6 +55,11 @@ public class UdpJSONAccessLogValve extends AbstractAccessLogValve {
 
   // XXX: adapted from fluentd message_length_limit: 32766
   private String messageLengthLimit = "32766";
+
+  // ----------------------------------------------------- Getters/Setters
+  protected void setForUnitTest(boolean forUnitTest) {
+    this.forUnitTest = forUnitTest;
+  }
 
   // ----------------------------------------------------- Properties
 
@@ -114,7 +121,7 @@ public class UdpJSONAccessLogValve extends AbstractAccessLogValve {
       if (logJSONBytes.length > this.intMessageLengthLimit) {
         final MessageLengthLimitException messageLengthLimitException = new MessageLengthLimitException(
             logJSONBytes.length, this.intMessageLengthLimit);
-        LOG.error("Unable to log an entry", messageLengthLimitException);
+        LOG.error("Unable to log entry", messageLengthLimitException);
         return;
       }
 
@@ -129,7 +136,7 @@ public class UdpJSONAccessLogValve extends AbstractAccessLogValve {
       this.datagramSocket.send(datagramPacket);
 
     } catch (JSONException | IOException e) {
-      LOG.error("Failed to log an entry", e);
+      LOG.error("Failed to log entry", e);
     }
   }
 
@@ -158,7 +165,9 @@ public class UdpJSONAccessLogValve extends AbstractAccessLogValve {
             append(", pattern: ").append(this.getPattern()).
             append(", messageLengthLimit: ").append(this.messageLengthLimit).toString()
     );
-    super.startInternal();
+    if (!this.forUnitTest) {
+      super.startInternal();
+    }
     LOG.info("Component started!");
   }
 
@@ -171,7 +180,10 @@ public class UdpJSONAccessLogValve extends AbstractAccessLogValve {
   @Override
   protected synchronized void stopInternal() throws LifecycleException {
     LOG.info("Shutting down component...");
-    super.stopInternal();
+
+    if (!this.forUnitTest) {
+      super.stopInternal();
+    }
 
     this.datagramSocket.disconnect();
     this.datagramSocket.close();
