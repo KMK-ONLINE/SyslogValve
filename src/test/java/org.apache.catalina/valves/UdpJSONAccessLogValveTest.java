@@ -7,6 +7,7 @@ import java.net.DatagramSocket;
 import java.net.SocketException;
 import java.net.SocketTimeoutException;
 import org.apache.catalina.LifecycleException;
+import org.apache.catalina.ValveParserConfigurationException;
 import org.hamcrest.Matchers;
 import org.hamcrest.core.IsInstanceOf;
 import org.junit.After;
@@ -84,11 +85,10 @@ public class UdpJSONAccessLogValveTest {
 
   @Test
   public void shouldNotLogWhenMessageLengthLimitIsExceeded()
-      throws LifecycleException, SocketException, InterruptedException {
+      throws LifecycleException, SocketException, InterruptedException, ValveParserConfigurationException {
     // Given
-    udpJSONAccessLogValve.stopInternal();
     udpJSONAccessLogValve.setMessageLengthLimit("1");
-    udpJSONAccessLogValve.startInternal();
+    udpJSONAccessLogValve.parseIntConfigurations();
 
     final CharArrayWriter charArrayWriter = new CharArrayWriter();
     charArrayWriter.append("{\"name\":\"John\",\"age\":25}");

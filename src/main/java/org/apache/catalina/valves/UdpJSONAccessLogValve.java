@@ -197,8 +197,8 @@ public class UdpJSONAccessLogValve extends AbstractAccessLogValve {
     );
   }
 
-  //------------------------------------------------------ Private
-  private void parseIntConfigurations() throws ValveParserConfigurationException {
+  //------------------------------------------------------ Protected
+  protected void parseIntConfigurations() throws ValveParserConfigurationException {
     try {
       this.intPort = Integer.parseInt(this.port);
       this.intMessageLengthLimit = Integer.parseInt(this.messageLengthLimit);
@@ -207,6 +207,7 @@ public class UdpJSONAccessLogValve extends AbstractAccessLogValve {
     }
   }
 
+  //------------------------------------------------------ Private
   private void configurePattern() {
     String configuredPattern = this.getPattern();
 
