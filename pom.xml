@@ -10,7 +10,7 @@
   <url>https://github.com/KMK-ONLINE/SyslogValve</url>
 
   <scm>
-    <developerConnection>scm:git:https://github.com/KMK-ONLINE/SyslogValve/tree/master</developerConnection>
+    <developerConnection>scm:git:https://github.com/KMK-ONLINE/SyslogValve</developerConnection>
   </scm>
 
   <properties>
@@ -107,6 +107,9 @@
         <artifactId>maven-release-plugin</artifactId>
         <version>2.5.3</version>
         <configuration>
+          <localCheckout>false</localCheckout>
+          <branchName>master</branchName>
+          <pushChanges>false</pushChanges>
           <tagBase>
             https://github.com/KMK-ONLINE/SyslogValve/tags
           </tagBase>
