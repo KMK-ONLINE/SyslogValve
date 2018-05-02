@@ -122,7 +122,7 @@
     <repository>
       <id>local-filesystem-repo</id>
       <name>Local Filesystem Repo</name>
-      <url>file:///${project.basedir}</url>
+      <url>file://${project.basedir}</url>
     </repository>
   </distributionManagement>
 </project>
