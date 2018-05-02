@@ -2,14 +2,14 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>SyslogValve</groupId>
   <artifactId>SyslogValve</artifactId>
-  <version>0.1.0</version>
+  <version>0.1.1-SNAPSHOT</version>
   <name>SyslogValve</name>
   <description>Syslog Valve for tomcat 8.0.x</description>
   <url>https://github.com/KMK-ONLINE/SyslogValve</url>
 
   <scm>
     <developerConnection>scm:git:https://github.com/KMK-ONLINE/SyslogValve</developerConnection>
-    <tag>SyslogValve-0.1.0</tag>
+    <tag>HEAD</tag>
   </scm>
 
   <properties>
