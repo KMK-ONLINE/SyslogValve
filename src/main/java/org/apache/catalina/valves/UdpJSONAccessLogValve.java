@@ -20,20 +20,20 @@ public class UdpJSONAccessLogValve extends AccessLogValve {
   private static final Log LOG = LogFactory.getLog(UdpJSONAccessLogValve.class);
 
   private static final String DEFAULT_JSON_FORMAT_PATTERN = "{"
-      + "\"request\":\"%U%q\","
-      + "\"agent\":\"%{User-Agent}i\","
-      + "\"ident\":\"%l\","
-      + "\"verb\":\"%m\","
-      + "\"type\":\"tomcataccess\","
-      + "\"x_forwarded_for\":\"%{X-Forwarded-For}i\","
-      + "\"request_time\":%D,"
       + "\"@timestamp\":\"%{yyyy-MM-dd'T'HH:mm:ss.SSSZ}t\","
+      + "\"type\":\"tomcataccess\","
+      + "\"agent\":\"%{User-Agent}i\","
       + "\"bytes\":%B,"
-      + "\"response\":%s,"
       + "\"clientip\":\"%h\","
       + "\"httpversion\":\"%H\","
+      + "\"ident\":\"%l\","
+      + "\"request\":\"%U%q\","
+      + "\"request_time\":%D,"
+      + "\"response\":%s,"
       + "\"timestamp\":\"%{dd/MMM/yyyy:HH:mm:ss Z}t\","
-      + "\"vhost\":\"%v\""
+      + "\"verb\":\"%m\","
+      + "\"vhost\":\"%v\","
+      + "\"x_forwarded_for\":\"%{X-Forwarded-For}i\""
       + "}";
 
   private boolean forUnitTest = false;
@@ -47,7 +47,7 @@ public class UdpJSONAccessLogValve extends AccessLogValve {
   private String port;
 
   // XXX: adapted from fluentd message_length_limit: 32766
-  private String messageLengthLimit = "32766";
+  private String messageLengthLimit = "65535";
 
   public UdpJSONAccessLogValve() {
     super();
