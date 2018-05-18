@@ -2,9 +2,9 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>SyslogValve</groupId>
   <artifactId>SyslogValve</artifactId>
-  <version>0.1.0-SNAPSHOT</version>
+  <version>0.1.0-7.0.68-SNAPSHOT</version>
   <name>SyslogValve</name>
-  <description>Syslog Valve for tomcat 7.0.x</description>
+  <description>Syslog Valve for tomcat 7.0.68</description>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
