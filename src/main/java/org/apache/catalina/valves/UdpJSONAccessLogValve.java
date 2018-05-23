@@ -22,6 +22,7 @@ public class UdpJSONAccessLogValve extends AbstractAccessLogValve {
   private static final String DEFAULT_JSON_FORMAT_PATTERN = "{"
       + "\"request\":\"%U%q\","
       + "\"agent\":\"%{User-Agent}i\","
+      + "\"auth\":\"%u\","
       + "\"ident\":\"%l\","
       + "\"verb\":\"%m\","
       + "\"type\":\"tomcataccess\","

@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>SyslogValve</groupId>
   <artifactId>SyslogValve</artifactId>
-  <version>0.1.1-SNAPSHOT</version>
+  <version>0.1.2-SNAPSHOT</version>
   <name>SyslogValve</name>
   <description>Syslog Valve for tomcat 8.0.x</description>
   <url>https://github.com/KMK-ONLINE/SyslogValve</url>
@@ -98,6 +98,7 @@
           <descriptorRefs>
             <descriptorRef>jar-with-dependencies</descriptorRef>
           </descriptorRefs>
+          <appendAssemblyId>false</appendAssemblyId>
         </configuration>
       </plugin>
 
