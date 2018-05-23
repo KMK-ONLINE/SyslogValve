@@ -23,6 +23,7 @@ public class UdpJSONAccessLogValve extends AccessLogValve {
       + "\"@timestamp\":\"%{yyyy-MM-dd'T'HH:mm:ss.SSSZ}t\","
       + "\"type\":\"tomcataccess\","
       + "\"agent\":\"%{User-Agent}i\","
+      + "\"auth\":\"%u\","
       + "\"bytes\":%B,"
       + "\"clientip\":\"%h\","
       + "\"httpversion\":\"%H\","
