@@ -20,21 +20,21 @@ public class UdpJSONAccessLogValve extends AbstractAccessLogValve {
   private static final Log LOG = LogFactory.getLog(UdpJSONAccessLogValve.class);
 
   private static final String DEFAULT_JSON_FORMAT_PATTERN = "{"
-      + "\"request\":\"%U%q\","
+      + "\"@timestamp\":\"%{yyyy-MM-dd'T'HH:mm:ss.SSSZ}t\","
+      + "\"type\":\"tomcataccess\","
       + "\"agent\":\"%{User-Agent}i\","
       + "\"auth\":\"%u\","
-      + "\"ident\":\"%l\","
-      + "\"verb\":\"%m\","
-      + "\"type\":\"tomcataccess\","
-      + "\"x_forwarded_for\":\"%{X-Forwarded-For}i\","
-      + "\"request_time\":%D,"
-      + "\"@timestamp\":\"%{yyyy-MM-dd'T'HH:mm:ss.SSSZ}t\","
       + "\"bytes\":%B,"
-      + "\"response\":%s,"
       + "\"clientip\":\"%h\","
       + "\"httpversion\":\"%H\","
+      + "\"ident\":\"%l\","
+      + "\"request\":\"%U%q\","
+      + "\"request_time\":%D,"
+      + "\"response\":%s,"
       + "\"timestamp\":\"%{dd/MMM/yyyy:HH:mm:ss Z}t\","
-      + "\"vhost\":\"%v\""
+      + "\"verb\":\"%m\","
+      + "\"vhost\":\"%v\","
+      + "\"x_forwarded_for\":\"%{X-Forwarded-For}i\""
       + "}";
 
   //------------------------------------------------------ Constructor
