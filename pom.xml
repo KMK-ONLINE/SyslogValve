@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>SyslogValve</groupId>
   <artifactId>SyslogValve</artifactId>
-  <version>0.1.2-SNAPSHOT</version>
+  <version>0.1.2-8.0.53-SNAPSHOT</version>
   <name>SyslogValve</name>
   <description>Syslog Valve for tomcat 8.0.x</description>
   <url>https://github.com/KMK-ONLINE/SyslogValve</url>
@@ -18,7 +18,7 @@
 
   <profiles>
     <profile>
-    <id>tomcat-8.0.49</id>
+    <id>tomcat-8.0.53</id>
     <activation>
       <activeByDefault>true</activeByDefault>
     </activation>
