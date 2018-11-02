@@ -34,7 +34,6 @@ import java.util.Date;
 
 import org.apache.catalina.connector.Request;
 import org.apache.catalina.connector.Response;
-import org.apache.catalina.util.LifecycleSupport;
 //import org.apache.catalina.util.StringManager;
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
@@ -207,11 +206,6 @@ public final class SyslogAccessLogValve extends AccessLogValve {
      */
     protected static String info = 
         "org.apache.catalina.valves.SyslogAccessLogValve/1.1";
-
-    /**
-     * The lifecycle event support for this component.
-     */
-    protected LifecycleSupport lifecycle = new LifecycleSupport(this);
 
  
 
